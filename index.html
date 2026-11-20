@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Atlas — GTA VI trophy guide and tracker</title>
+<meta name="description" content="An offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: checklist, roadmap, missables and next-up planner.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-title">
+    <h1>Leonida Trophy Atlas</h1>
+    <p class="subtitle">A field notebook for the 55 PlayStation 5 trophies of Grand Theft Auto VI — checklist, roadmap, missables and planner. Works offline; your progress stays in this browser.</p>
+  </div>
+  <div class="masthead-progress" id="mastheadProgress" aria-live="polite">
+    <div class="big-count"><span id="earnedCount">0</span><span class="big-count-of"> / 55 earned</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width: 0%"></div></div>
+    <p class="progress-line" id="progressLine">55 trophies · 1 Platinum · 2 Gold · 6 Silver · 46 Bronze</p>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs" aria-label="Views">
+  <button type="button" class="tab active" data-view="checklist">Checklist</button>
+  <button type="button" class="tab" data-view="roadmap">Roadmap</button>
+  <button type="button" class="tab" data-view="missables">Missables</button>
+  <button type="button" class="tab" data-view="nextup">Next up</button>
+</nav>
+
+<section class="toolbar" id="toolbar" aria-label="Checklist controls">
+  <label class="search-box">Search <input id="search" type="search" placeholder="Name or description…" autocomplete="off"></label>
+  <label>Kind
+    <select id="kindFilter">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="missable">Missable</option>
+      <option value="collectibles">Collectibles</option>
+      <option value="activities">Activities</option>
+      <option value="platinum">Platinum</option>
+    </select>
+  </label>
+  <label>Grade
+    <select id="gradeFilter">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label>State
+    <select id="earnedFilter">
+      <option value="all">Earned + not earned</option>
+      <option value="earned">Earned only</option>
+      <option value="not">Not earned only</option>
+    </select>
+  </label>
+  <label class="toggle"><input id="spoilerToggle" type="checkbox" checked> Hide story trophies until earned</label>
+  <label class="toggle"><input id="themeToggle" type="checkbox"> Night theme</label>
+  <span class="toolbar-actions">
+    <button id="exportBtn" type="button">Export progress</button>
+    <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json"></label>
+  </span>
+</section>
+
+<main class="layout">
+  <div class="view" id="viewChecklist">
+    <p class="view-note" id="listCount"></p>
+    <ul class="trophy-list" id="trophyList"></ul>
+  </div>
+
+  <div class="view hidden" id="viewRoadmap">
+    <h2>Roadmap to the platinum</h2>
+    <p class="view-note">Built from the official descriptions. One playthrough is enough — PowerPyx puts the story at about 60 to 80 hours and the whole run at about 200 hours; Push Square says 250 or more. There are no difficulty settings and no mission replay, so keep a save at the start and end of each chapter (15 manual slots plus 1 autosave).</p>
+    <div id="roadmapStages"></div>
+    <div class="finish-line" id="finishLine"></div>
+  </div>
+
+  <div class="view hidden" id="viewMissables">
+    <h2>Missables</h2>
+    <p class="view-note">Missable flags are derived from the official descriptions and from what community guides have confirmed — and they are labelled as such. The game is days old and no guide writer has played through twice yet.</p>
+    <div id="missableList"></div>
+    <h3>Looks missable, but is not</h3>
+    <p class="view-note">PowerPyx lists things that look missable and do not affect any trophy or 100% completion:</p>
+    <ul class="plain-list" id="notMissableList"></ul>
+  </div>
+
+  <div class="view hidden" id="viewNextup">
+    <h2>Next up</h2>
+    <p class="view-note">The next easiest unearned trophies, shortest grind first — the one flagged missable comes first while its window is open.</p>
+    <ol class="nextup-list" id="nextupList"></ol>
+    <h3>Your counts</h3>
+    <p class="view-note">Progress you have logged toward counted trophies.</p>
+    <ul class="plain-list" id="countsList"></ul>
+  </div>
+
+  <aside class="detail" id="detailPane" aria-label="Trophy guide"></aside>
+</main>
+
+<footer class="colophon">
+  <p><strong>How this guide is honest.</strong> Names, descriptions and grades are PlayStation's official list, checked live against Exophase on 20 November 2026 (no differences from the list frozen 18 November). Every guide is written in our own words from the official description plus a cited source; where a step is not yet confirmed by any guide, the guide says so instead of inventing a location. No online trophies exist in the official list. Cheats disable trophies — keep them off your platinum run.</p>
+  <p>Sources: <a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/">Exophase — Grand Theft Auto VI trophies</a> · <a href="https://psnprofiles.com/trophies/43531-grand-theft-auto-vi">PSNProfiles — Grand Theft Auto VI trophies</a> · <a href="https://sixshore.com/gta-6/guides/trophies-and-achievements/">sixshore — GTA 6 Trophy and Achievement List (summarizing PowerPyx and Push Square)</a></p>
+  <p class="keys">Keys: <kbd>j</kbd>/<kbd>k</kbd> move between trophies · <kbd>space</kbd> toggles the selected trophy · <kbd>/</kbd> searches.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
